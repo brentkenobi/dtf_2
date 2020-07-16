@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
 
+PORT = process.env.PORT || 3000
 
 const db = knex({
 		client: 'pg',
@@ -537,10 +538,10 @@ app.get('/profile/:id',(req,res) =>{
 
 
 
-app.listen(process.env.PORT || 3000, ()=>{
+app.listen(PORT, ()=>{
 //app.listen(3000, ()=>{
 	//console.log('app is running at port 3000');
-	console.log(`app is running at port ${process.env.PORT}`);
+	console.log(`app is running at port ${PORT}`);
 });
 
 
