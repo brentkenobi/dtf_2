@@ -7,16 +7,27 @@ const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
 
+
 const db = knex({
 		client: 'pg',
 		connection: {
 		 connectionString: process.env.DATABASE_URL,
-  			ssl: {
-   			 rejectUnauthorized: false
-  				}
+  			ssl: true,
 		}
 });
 
+/*
+
+const db = knex({
+		client: 'pg',
+		connection: {
+		host: '127.0.0.1',
+		user: 'postgres',
+		password: 'abc123',
+		database: 'NBA_DTF'
+	}
+});
+*/
 
 //const PORT = 3000
 
@@ -526,9 +537,10 @@ app.get('/profile/:id',(req,res) =>{
 
 
 
-app.listen(process.env.PORT || 3000, ()=>{
+//app.listen(process.env.PORT || 3000, ()=>{
+app.listen(3000, ()=>{
 	//console.log('app is running at port 3000');
-	console.log(`app is running at port ${process.env.PORT}`);
+	console.log(`app is running at port 3000`);
 });
 
 
